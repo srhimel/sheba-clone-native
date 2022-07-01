@@ -1,0 +1,52 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "title": "AC Repair Services",
+      "description": "We offer a wide range of AC repair services. We can repair any AC that you have in your home.",
+      "image": "https://s3.ap-south-1.amazonaws.com/cdn-shebaxyz/images/categories_images/icons_png/1601959826_ac_52x52.webp"
+    },
+    {
+      "id": 2,
+      "title": "Appliance Repair",
+      "description": "We offer a wide range of appliance repair services. We can repair any appliance that you have in your home.",
+      "image": "https://s3.ap-south-1.amazonaws.com/cdn-shebaxyz/images/categories_images/icons_png/1583681524_tiwnn_52x52.webp"
+    },
+    {
+      "id": 3,
+      "title": "Beauty & Salon",
+      "description": "We offer a wide range of beauty & salon services. We can repair any beauty & salon that you have in your home.",
+      "image": "https://s3.ap-south-1.amazonaws.com/cdn-shebaxyz/images/categories_images/icons_png/1599673571_tiwnn_52x52.webp"
+    },
+    {
+      "id": 4,
+      "title": "Trips & Travels",
+      "description": "We offer a wide range of Trips & Travels services. We can repair any Trips & Travels that you have in your home.",
+      "image": "https://s3.ap-south-1.amazonaws.com/cdn-shebaxyz/images/v4_uploads/category_icons/236/default_52x52.webp"
+    },
+    {
+      "id": 5,
+      "title": "Car Care Services",
+      "description": "We offer a wide range of Car Care Services services. We can repair any Car Care Services that you have in your home.",
+      "image": "https://s3.ap-south-1.amazonaws.com/cdn-shebaxyz/images/v4_uploads/category_icons/224/default_52x52.webp"
+    },
+    {
+      "id": 6,
+      "title": "Cleaning & Pest Control",
+      "description": "We offer a wide range of Cleaning & Pest Control services. We can repair any Cleaning & Pest Control that you have in your home.",
+      "image": "https://s3.ap-south-1.amazonaws.com/cdn-shebaxyz/images/categories_images/icons_png/1583684923_tiwnn_52x52.webp"
+    },
+    {
+      "id": 7,
+      "title": "Painting & Renovation",
+      "description": "We offer a wide range of Painting & Renovation services. We can repair any Painting & Renovation that you have in your home.",
+      "image": "https://s3.ap-south-1.amazonaws.com/cdn-shebaxyz/images/v4_uploads/category_icons/226/default_52x52.webp"
+    },
+    {
+      "id": 8,
+      "title": "Electrical & Plumbing",
+      "description": "We offer a wide range of Electrical & Plumbing services. We can repair any Electrical & Plumbing that you have in your home.",
+      "image": "https://s3.ap-south-1.amazonaws.com/cdn-shebaxyz/images/v4_uploads/category_icons/225/default_52x52.webp"
+    }
+  ]
+}
