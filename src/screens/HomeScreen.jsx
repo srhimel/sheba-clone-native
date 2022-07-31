@@ -3,6 +3,7 @@ import { StyleSheet, View, Image, ScrollView, TextInput, Pressable } from 'react
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchService } from '../redux/serviceSlice'
+import { fetchProducts } from '../redux/ProductSlice'
 import { MaterialCommunityIcons, AntDesign } from '@expo/vector-icons'
 import sliderImages from "../data/sliderImages"
 import Theme from '../theme'
@@ -15,6 +16,7 @@ export default function HomeScreen() {
   const dispatch = useDispatch()
   React.useEffect(() => {
     dispatch(fetchService())
+    dispatch(fetchProducts())
   }, [])
   const { loading, data, error } = useSelector(state => state.service)
   if (loading) return <Text>Loading...</Text>

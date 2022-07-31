@@ -1,15 +1,16 @@
-import React from 'react'
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from '../screens/HomeScreen';
-import InboxScreen from '../screens/InboxScreen';
-import MoreScreen from '../screens/MoreScreen';
-import OrdersScreen from '../screens/OrdersScreen';
-import HelpScreen from '../screens/HelpScreen';
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet } from 'react-native';
-import { AntDesign, MaterialIcons } from '@expo/vector-icons';
+import HomeScreen from '../screens/HomeScreen';
+import HeadphoneScreen from '../screens/HeadphoneScreen';
+import ProductDetails from '../screens/ProductDetails';
+import EarphoneScreen from '../screens/EarphoneScreen';
+import SpeakerScreen from '../screens/SpeakerScreen';
+import CartScreen from '../screens/CartScreen';
+import CheckoutScreen from '../screens/CheckoutScreen';
 import Theme from '../theme';
+import { MaterialCommunityIcons, Ionicons, SimpleLineIcons } from '@expo/vector-icons';
 
 const CustomTheme = {
   ...DefaultTheme,
@@ -30,28 +31,66 @@ const HomeStackScreen = () => {
   )
 }
 
-const InboxStack = createNativeStackNavigator()
-const InboxStackScreen = () => {
+const HeadPhoneStack = createNativeStackNavigator()
+const HeadPhoneStackScreen = () => {
   return (
-    <InboxStack.Navigator screenOptions={{
+    <HeadPhoneStack.Navigator screenOptions={{
       headerShown: false
     }}>
-      <InboxStack.Screen name="Inbox" component={InboxScreen} />
-    </InboxStack.Navigator>
+      <HeadPhoneStack.Screen name="HeadPhone" component={HeadphoneScreen} />
+      <HeadPhoneStack.Screen name="Details" component={ProductDetails} />
+    </HeadPhoneStack.Navigator>
   )
 }
 
-const OrdersStack = createNativeStackNavigator()
-const OrdersStackScreen = () => {
+const EarPhoneStack = createNativeStackNavigator()
+const EarPhoneStackScreen = () => {
   return (
-    <OrdersStack.Navigator screenOptions={{
+    <EarPhoneStack.Navigator screenOptions={{
       headerShown: false
     }}>
-      <OrdersStack.Screen name="Orders" component={OrdersScreen} />
-    </OrdersStack.Navigator>
+      <EarPhoneStack.Screen name="EarPhone" component={EarphoneScreen} />
+      <EarPhoneStack.Screen name="Details" component={ProductDetails} />
+    </EarPhoneStack.Navigator>
   )
 }
 
+const SpeakerStack = createNativeStackNavigator()
+const SpeakerStackScreen = () => {
+  return (
+    <SpeakerStack.Navigator screenOptions={{
+      headerShown: false
+    }}>
+      <SpeakerStack.Screen name="Speaker" component={SpeakerScreen} />
+      <SpeakerStack.Screen name="Details" component={ProductDetails} />
+    </SpeakerStack.Navigator>
+  )
+}
+
+const CartStack = createNativeStackNavigator()
+const CartStackScreen = () => {
+  return (
+    <CartStack.Navigator screenOptions={{
+      headerShown: false
+    }}>
+      <CartStack.Screen name="Cart" component={CartScreen} />
+      <CartStack.Screen name="Checkout" component={CheckoutScreen} />
+    </CartStack.Navigator>
+  )
+}
+
+const TabIcon = ({ font, name, color }) => {
+  switch (font) {
+    case 'MaterialCommunityIcons':
+      return <MaterialCommunityIcons name={name} size={20} color={color} />
+    case 'Ionicons':
+      return <Ionicons name={name} size={20} color={color} />
+    case 'SimpleLineIcons':
+      return <SimpleLineIcons name={name} size={20} color={color} />
+    default:
+      return <MaterialCommunityIcons name={name} size={20} color={color} />
+  }
+}
 
 const Tab = createBottomTabNavigator();
 export default function Navigation() {
@@ -79,9 +118,9 @@ export default function Navigation() {
           options={
             {
               tabBarLabel: 'Home',
-              tabBarIcon: ({ color, size }) => (
-                <AntDesign name="home" size={18} color={color} />
-              ),
+              tabBarIcon: ({ color }) => (
+                <TabIcon font="MaterialCommunityIcons" name="home" color={color} />
+              )
             }
           }
           name="HomeTab"
@@ -90,44 +129,52 @@ export default function Navigation() {
         <Tab.Screen
           options={
             {
-              tabBarLabel: 'Inbox',
-              tabBarIcon: ({ color, size }) => (
-                <AntDesign name="message1" size={18} color={color} />
+              tabBarLabel: 'Headphone',
+              tabBarIcon: ({ color }) => (
+                <TabIcon font="MaterialCommunityIcons" name="headphones" color={color} />
               )
             }
-          } name="InboxTab"
-          component={InboxStackScreen}
+          }
+          name="HeadphoneTab"
+          component={HeadPhoneStackScreen}
         />
         <Tab.Screen
           options={
             {
-              tabBarLabel: 'Orders',
-              tabBarIcon: ({ color, size }) => (
-                <AntDesign name="shoppingcart" size={18} color={color} />
+              tabBarLabel: 'Earphone',
+              tabBarIcon: ({ color }) => (
+                <TabIcon font="SimpleLineIcons" name="earphones-alt" color={color} />
               )
             }
           }
-          name="OrdersTab"
-          component={OrdersStackScreen}
+          name="EarphoneTab"
+          component={EarPhoneStackScreen}
         />
         <Tab.Screen
           options={
             {
-              tabBarIcon: ({ color, size }) => (
-                <MaterialIcons name="support-agent" size={18} color={color} />
+              tabBarLabel: 'Speaker',
+              tabBarIcon: ({ color }) => (
+                <TabIcon font="MaterialCommunityIcons" name="speaker" color={color} />
               )
             }
           }
-          name="Help" component={HelpScreen} />
+          name="SpeakerTab"
+          component={SpeakerStackScreen}
+        />
         <Tab.Screen
           options={
             {
-              tabBarIcon: ({ color, size }) => (
-                <AntDesign name="appstore-o" size={18} color={color} />
+              tabBarLabel: 'Cart',
+              tabBarIcon: ({ color }) => (
+                <TabIcon font="Ionicons" name="cart-outline" color={color} />
               )
             }
           }
-          name="More" component={MoreScreen} />
+          name="CartTab"
+          component={CartStackScreen}
+        />
+
       </Tab.Navigator>
     </NavigationContainer>
   )

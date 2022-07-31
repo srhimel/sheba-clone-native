@@ -1,10 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit';
-import serviceReducer from './serviceSlice'
+import { configureStore } from '@reduxjs/toolkit'
+import ServiceReducer from './serviceSlice'
+import ProductReducer from './ProductSlice'
 
 const store = configureStore({
   reducer: {
-    service: serviceReducer
+    service: ServiceReducer,
+    product: ProductReducer
   }
 })
 
-export default store;
+export default store

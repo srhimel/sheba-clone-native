@@ -7,8 +7,8 @@ const initialState = {
   error: ''
 }
 
-export const fetchService = createAsyncThunk('service/fetch', () => {
-  return axios.get('https://jsonkeeper.com/b/9ELG')
+export const fetchService = createAsyncThunk('service/fetch', async () => {
+  return await axios.get('https://jsonkeeper.com/b/9ELG')
     .then(res => res.data)
 })
 const serviceSlice = createSlice({
@@ -19,14 +19,14 @@ const serviceSlice = createSlice({
       state.loading = true
     })
     builder.addCase(fetchService.fulfilled, (state, action) => {
-      state.loading = false,
-        state.data = action.payload,
-        state.error = null
+      state.loading = false
+      state.data = action.payload
+      state.error = null
     })
     builder.addCase(fetchService.rejected, (state, action) => {
-      state.loading = false,
-        state.data = [],
-        state.error = action.error.message
+      state.loading = false
+      state.data = []
+      state.error = action.error.message
     })
   }
 })
